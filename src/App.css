@@ -84,12 +84,13 @@ img {
 }
 
 .earth {
-  background: #eb125d url( "https://s3-us-west-2.amazonaws.com/s.cdpn.io/641/bg_earth.jpg") repeat-x 0 0 /  100% auto;  
+  /* background: #eb125d url( "https://s3-us-west-2.amazonaws.com/s.cdpn.io/641/bg_earth.jpg") repeat-x 0 0 /  100% auto;   */
+  background: #eb125d url("./images/earth.jpg") repeat-x 0 0 /  100% auto;  
   bottom: 0;
 }
 
 .sky {
-  background: #246e89 url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/641/bg_sky.jpg") repeat-x  100% 100% / auto 100%;
+  background: #246e89 url("./images/sky.jpg") repeat-x  100% 100% / auto 100%;
   top: 0;
 }
 
@@ -141,3 +142,18 @@ html, body {
   top: -9%; left: 15%    
   
 }
+
+#buttonContainer {
+  display: flex;
+  justify-content: center;
+  z-index: 1;
+  position: relative;
+  top: 1%; left: 0;
+}
+
+/* button {
+  z-index: 1;
+  position: absolute;
+  top: 1%; left: 50%; 
+  z-index: 0;
+} */

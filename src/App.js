@@ -122,10 +122,30 @@ export const App = () => {
   });
 
 
+  const speedUp = () => {
+    const animation = redQueen.getAnimation();
+    if (animation.playbackRate < 3)
+      animation.updatePlaybackRate(animation.playbackRate * 1.25);
+  };
+
+  // const jumpToHalf = () => {
+  //   const animation = redQueen.getAnimation();
+  //   animation.currentTime = animation.effect.getTiming().duration / 2;
+  // };
+  const speedDown = () => {
+    const animation = redQueen.getAnimation();
+    if (animation.playbackRate > 0.5)
+      animation.updatePlaybackRate(animation.playbackRate * 0.75);
+  };
 
   return (
     <div className="wrapper">
       <div className="sky"></div>
+      <div id="buttonContainer">
+        <button onClick={speedUp}>Speed Up</button>
+        {/* <button onClick={jumpToHalf}>Jump to Half</button> */}
+        <button onClick={speedDown}>Speed Down</button>
+      </div>
       <div className="earth">
         <div id="red-queen_and_alice">
           <img ref={redQueen.ref} id="red-queen_and_alice_sprite" src={queen_and_alice_sprite} alt="Alice and the Red Queen running to stay in place." />
@@ -137,30 +157,30 @@ export const App = () => {
       </div>
 
       <div ref={foreGround2.ref} class="scenery" id="foreground2">
-        <img id="bush" src={bush} alt=" "/>
-        <img id="w_rook_upright" src={w_rook_upright} alt=" "/>
+        <img id="bush" src={bush} alt=" " />
+        <img id="w_rook_upright" src={w_rook_upright} alt=" " />
       </div>
 
-      <div ref = {dogAnimation.ref} class="scenery" id="dogContainer">
-        <img id="dog" src={dog} alt="dog"/>
+      <div ref={dogAnimation.ref} class="scenery" id="dogContainer">
+        <img id="dog" src={dog} alt="dog" />
       </div>
 
-      <div ref = {backGround1.ref} class="scenery" id="background1">
-        <img id="r_pawn_upright" src={r_pawn_upright} alt=" "/>
-        <img id="w_rook" src={w_rook} alt=" "/>
-        <img id="palm1" src={palm1} alt=" "/>
+      <div ref={backGround1.ref} class="scenery" id="background1">
+        <img id="r_pawn_upright" src={r_pawn_upright} alt=" " />
+        <img id="w_rook" src={w_rook} alt=" " />
+        <img id="palm1" src={palm1} alt=" " />
       </div>
 
 
 
       <div ref={backGround2.ref} class="scenery" id="background2">
-        <img id="r_pawn" src={r_pawn} alt=" "/>
-        <img id="r_knight" src={r_knight} alt=" "/>
-        <img id="palm2" src={palm2} alt=" "/>
+        <img id="r_pawn" src={r_pawn} alt=" " />
+        <img id="r_knight" src={r_knight} alt=" " />
+        <img id="palm2" src={palm2} alt=" " />
       </div>
 
-      <div ref = {cycleAnimation.ref} class="scenery" id="foreground1">
-        <img id="cycle" src={cycle} alt="cycle"height="250px"/>
+      <div ref={cycleAnimation.ref} class="scenery" id="foreground1">
+        <img id="cycle" src={cycle} alt="cycle" height="250px" />
       </div>
 
       {/* <div ref = {chickenAnimation.ref} class="scenery" id="background2">
@@ -170,11 +190,11 @@ export const App = () => {
 
 
       <div >
-        <img id="clock" src={clock} alt="clock"/>
+        <img id="clock" src={clock} alt="clock" />
       </div>
 
-      <div  ref = {birdAnimation.ref} class="scenery" id="background2">
-        <img  id="bird" src={bird} alt="bird"/>
+      <div ref={birdAnimation.ref} class="scenery" id="background2">
+        <img id="bird" src={bird} alt="bird" />
       </div>
 
     </div>
@@ -183,126 +203,7 @@ export const App = () => {
 };
 
 
-// const Red_Queen = () => {
+/* Alice tires so easily!
+  Every so many seconds, reduce their playback rate so they slow a little.
+*/
 
-//   const { ref, playState, getAnimation } = useWebAnimations({
-//     keyframes: [
-//       { transform: 'translateY(0)' },
-//       { transform: 'translateY(-100%)' }
-//     ],
-//     timing: {
-//       easing: 'steps(7, end)',
-//       direction: "reverse",
-//       duration: 600,
-//       playbackRate: 1,
-//       iterations: Infinity
-//     },
-//   });
-
-//   return (
-//     < div className="earth" >
-//       <div id="red-queen_and_alice">
-//         <img ref={ref} id="red-queen_and_alice_sprite" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/641/sprite_running-alice-queen_small.png" srcSet="https://s3-us-west-2.amazonaws.com/s.cdpn.io/641/sprite_running-alice-queen.png 2x" alt="Alice and the Red Queen running to stay in place." />
-//       </div>
-//     </div >
-//   );
-// };
-
-
-
-
-// const ForeGround1 = () => {
-
-//   // const { ref } = useWebAnimations({
-//   //   keyframes: [
-//   //     { transform: 'translateX(100%)' },
-//   //     { transform: 'translateX(-100%)' }
-//   //   ],
-//   //   timing: {
-//   //     duration: 12000,
-//   //     iterations: Infinity
-//   //   },
-//   // });
-
-//   return (
-//     <div className="scenery" id="foreground1">
-//       <img id="palm3" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/641/palm3_small.png" srcSet="https://s3-us-west-2.amazonaws.com/s.cdpn.io/641/palm3.png 2x" alt="foreground1 " />
-//     </div>
-//   );
-// };
-
-
-// const ForeGround2 = () => {
-
-//   // const { ref } = useWebAnimations({
-//   //   keyframes: [
-//   //     { transform: 'translateX(100%)' },
-//   //     { transform: 'translateX(-100%)' }
-//   //   ],
-//   //   timing: {
-//   //     duration: 12000,
-//   //     iterations: Infinity
-//   //   },
-//   // });
-
-//   return (
-//     <div className="scenery" id="foreground2">
-//       <img id="bush" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/641/bush_small.png" srcSet="https://s3-us-west-2.amazonaws.com/s.cdpn.io/641/bush.png 2x" alt=" " />
-//       <img id="w_rook_upright" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/641/w_rook_upright_small.png" srcSet="https://s3-us-west-2.amazonaws.com/s.cdpn.io/641/w_rook_upright.png 2x" alt=" " />
-//     </div>
-//   );
-// };
-
-
-
-// const BackGround1 =() => {
-
-// // const {ref, playState, getAnimation} = useWebAnimations({
-// //             keyframes: [
-// //     {transform: 'translateY(0)' },
-// //     {transform: 'translateY(-100%)' }
-// //   ],
-// //   timing: {
-// //             easing: 'steps(7, end)',
-// //     direction: "reverse",
-// //     duration: 600,
-// //     playbackRate: 1,
-// //     iterations: Infinity
-// //    },
-// // });
-
-// return (
-// <div className="scenery" id="background1">
-//       <img id="r_pawn_upright" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/641/r_pawn_upright_small.png" srcset="https://s3-us-west-2.amazonaws.com/s.cdpn.io/641/r_pawn_upright.png 2x" alt=" "/>
-//       <img id="w_rook" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/641/w_rook_small.png" srcset="https://s3-us-west-2.amazonaws.com/s.cdpn.io/641/w_rook.png 2x" alt=" "/>
-//       <img id="palm1" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/641/palm1_small.png" srcset="https://s3-us-west-2.amazonaws.com/s.cdpn.io/641/palm1.png 2x" alt=" "/>
-// </div>
-// );
-// };
-
-
-
-// const BackGround2 =() => {
-
-// // const {ref, playState, getAnimation} = useWebAnimations({
-// //                   keyframes: [
-// //     {transform: 'translateY(0)' },
-// //     {transform: 'translateY(-100%)' }
-// //   ],
-// //   timing: {
-// //                   easing: 'steps(7, end)',
-// //     direction: "reverse",
-// //     duration: 600,
-// //     playbackRate: 1,
-// //     iterations: Infinity
-// //    },
-// // });
-
-// return (
-// <div className="scenery" id="background2">
-//       <img id="r_pawn" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/641/r_pawn_small.png" srcset="https://s3-us-west-2.amazonaws.com/s.cdpn.io/641/r_pawn.png 2x" alt=" "/>
-//       <img id="r_knight" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/641/r_knight_small.png" srcset="https://s3-us-west-2.amazonaws.com/s.cdpn.io/641/r_knight.png 2x" alt=" "/>
-//       <img id="palm2" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/641/palm2_small.png" srcset="https://s3-us-west-2.amazonaws.com/s.cdpn.io/641/palm2.png 2x" alt=" "/>
-// </div>
-// );
-// };
