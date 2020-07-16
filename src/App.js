@@ -131,7 +131,7 @@ export const App = () => {
 
   const speedUp = () => {
     const animation = redQueen.getAnimation();
-    if (animation.playbackRate < 3) {
+    if (animation.playbackRate < 4) {
       animation.updatePlaybackRate(animation.playbackRate * 1.25);
       adjustBackgroundPlayback();
     }
@@ -143,7 +143,7 @@ export const App = () => {
   // };
   const speedDown = () => {
     const animation = redQueen.getAnimation();
-    if (animation.playbackRate > 0.5) {
+    if (animation.playbackRate > 0.25) {
       animation.updatePlaybackRate(animation.playbackRate * 0.75);
       adjustBackgroundPlayback();
     }
