@@ -99,16 +99,16 @@ export const App = () => {
     }
   });
 
-  const chickenAnimation = useWebAnimations({
-    keyframes: [
-      { transform: 'translateX(100%)' },
-      { transform: 'translateX(-100%)' }
-    ],
-    timing: {
-      duration: 40000,
-      iterations: Infinity
-    }
-  });
+  // const chickenAnimation = useWebAnimations({
+  //   keyframes: [
+  //     { transform: 'translateX(100%)' },
+  //     { transform: 'translateX(-100%)' }
+  //   ],
+  //   timing: {
+  //     duration: 40000,
+  //     iterations: Infinity
+  //   }
+  // });
 
   const cycleAnimation = useWebAnimations({
     keyframes: [
