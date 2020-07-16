@@ -155,22 +155,7 @@ export const App = () => {
     sceneries.forEach((anim) => {
       anim.getAnimation().playbackRate = redQueen.getAnimation().playbackRate;
     })
-    // if (redQueen.getAnimation().playbackRate < .8) {
-    //   sceneries.forEach((anim) => {
-    //     anim.getAnimation().playbackRate = redQueen.getAnimation().playbackRate;
-    //     // console.log(anim.getAnimation().playbackRate);
-    //   });
-    // } else if (redQueen.getAnimation().playbackRate > 1.2) {
-    //   sceneries.forEach((anim) => {
-    //     anim.getAnimation().playbackRate = redQueen.getAnimation().playbackRate;
-    //     // console.log(anim.getAnimation().playbackRate);
-    //   });
-    // } else {
-    //   sceneries.forEach((anim) => {
-    //     anim.getAnimation().playbackRate = 0;
-    //     // console.log(anim.getAnimation().playbackRate);
-    //   });
-    // }   
+  
   }
 
   return (
@@ -237,8 +222,4 @@ export const App = () => {
   );
 };
 
-
-/* Alice tires so easily!
-  Every so many seconds, reduce their playback rate so they slow a little.
-*/
 
