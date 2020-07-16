@@ -100,5 +100,44 @@ html, body {
 .wrapper {
   width: 100%; height: 100%;
   overflow: hidden;
-  /* position: relative; */
+  position: absolute;
+}
+
+#clock {
+  /* top: 10%; left: 15%   ; */
+  position: absolute;
+  top: 6%; left: 94%; 
+  z-index: 0;
+}
+
+#bird {
+  /* position: absolute;
+  top: 50%;  */
+  z-index: 2;
+
+  position: absolute;
+  top: -70%; left: 50%;
+  /* transform: translate(-50%, -50%); */
+}
+
+#cycle {
+
+  z-index: 2;
+
+  position: absolute;
+  top: 60%;  
+}
+
+#dogContainer {
+  z-index: 0;    
+}
+
+#dog {
+
+  z-index: -4;
+
+  position: relative;
+  /* top: 60%; */
+  top: -9%; left: 15%    
+  
 }
