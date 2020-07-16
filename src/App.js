@@ -1,6 +1,7 @@
 import React from "react";
 import useWebAnimations from "@wellyshen/use-web-animations";
 import './App.css';
+import cycle from './images/chicken.gif';
 
 export const App = () => {
 
@@ -93,6 +94,11 @@ export const App = () => {
         <img id="r_knight" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/641/r_knight_small.png" alt=" "/>
         <img id="palm2" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/641/palm2_small.png" alt=" "/>
       </div>
+
+      <div ref = {backGround2.ref} class="scenery" id="background2">
+        <img id="r_pawn" src={cycle} alt="cycle"/>
+      </div>
+
     </div>
 
   );
