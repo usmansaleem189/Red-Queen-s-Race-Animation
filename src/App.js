@@ -5,7 +5,7 @@ import './App.css';
 import cycle from './images/cycle.gif';
 import bird from './images/bird.gif';
 import dog from './images/dog.gif';
-import clock from './images/sun.gif';
+import sun from './images/sun.gif';
 import w_rook_upright from './images/w_rook_upright.png';
 import palm3 from './images/palm3.png';
 import bush from './images/bush.png'
@@ -40,6 +40,7 @@ export const App = () => {
     ],
     timing: {
       duration: 12000,
+      playbackRate: 1,
       iterations: Infinity
     }
   });
@@ -51,6 +52,7 @@ export const App = () => {
     ],
     timing: {
       duration: 12000,
+      playbackRate: 1,
       iterations: Infinity
     }
   });
@@ -62,6 +64,7 @@ export const App = () => {
     ],
     timing: {
       duration: 36000,
+      playbackRate: 1,
       iterations: Infinity
     }
   });
@@ -73,6 +76,7 @@ export const App = () => {
     ],
     timing: {
       duration: 36000,
+      playbackRate: 1,
       iterations: Infinity
     }
   });
@@ -84,6 +88,7 @@ export const App = () => {
     ],
     timing: {
       duration: 10000,
+      playbackRate: 1,
       iterations: Infinity
     }
   });
@@ -95,6 +100,7 @@ export const App = () => {
     ],
     timing: {
       duration: 15000,
+      playbackRate: 1,
       iterations: Infinity
     }
   });
@@ -117,6 +123,7 @@ export const App = () => {
     ],
     timing: {
       duration: 5000,
+      playbackRate: 1,
       iterations: Infinity
     }
   });
@@ -124,8 +131,10 @@ export const App = () => {
 
   const speedUp = () => {
     const animation = redQueen.getAnimation();
-    if (animation.playbackRate < 3)
+    if (animation.playbackRate < 3) {
       animation.updatePlaybackRate(animation.playbackRate * 1.25);
+      adjustBackgroundPlayback();
+    }
   };
 
   // const jumpToHalf = () => {
@@ -134,9 +143,35 @@ export const App = () => {
   // };
   const speedDown = () => {
     const animation = redQueen.getAnimation();
-    if (animation.playbackRate > 0.5)
+    if (animation.playbackRate > 0.5) {
       animation.updatePlaybackRate(animation.playbackRate * 0.75);
+      adjustBackgroundPlayback();
+    }
   };
+
+  var sceneries = [foreGround1, foreGround2, backGround1, backGround2, dogAnimation, birdAnimation, cycleAnimation]
+  
+  var adjustBackgroundPlayback = function() {
+    sceneries.forEach((anim) => {
+      anim.getAnimation().playbackRate = redQueen.getAnimation().playbackRate;
+    })
+    // if (redQueen.getAnimation().playbackRate < .8) {
+    //   sceneries.forEach((anim) => {
+    //     anim.getAnimation().playbackRate = redQueen.getAnimation().playbackRate;
+    //     // console.log(anim.getAnimation().playbackRate);
+    //   });
+    // } else if (redQueen.getAnimation().playbackRate > 1.2) {
+    //   sceneries.forEach((anim) => {
+    //     anim.getAnimation().playbackRate = redQueen.getAnimation().playbackRate;
+    //     // console.log(anim.getAnimation().playbackRate);
+    //   });
+    // } else {
+    //   sceneries.forEach((anim) => {
+    //     anim.getAnimation().playbackRate = 0;
+    //     // console.log(anim.getAnimation().playbackRate);
+    //   });
+    // }   
+  }
 
   return (
     <div className="wrapper">
@@ -156,16 +191,16 @@ export const App = () => {
         <img id="palm3" src={palm3} alt=" " />
       </div>
 
-      <div ref={foreGround2.ref} class="scenery" id="foreground2">
+      <div ref={foreGround2.ref} className="scenery" id="foreground2">
         <img id="bush" src={bush} alt=" " />
         <img id="w_rook_upright" src={w_rook_upright} alt=" " />
       </div>
 
-      <div ref={dogAnimation.ref} class="scenery" id="dogContainer">
+      <div ref={dogAnimation.ref} className="scenery" id="dogContainer">
         <img id="dog" src={dog} alt="dog" />
       </div>
 
-      <div ref={backGround1.ref} class="scenery" id="background1">
+      <div ref={backGround1.ref} className="scenery" id="background1">
         <img id="r_pawn_upright" src={r_pawn_upright} alt=" " />
         <img id="w_rook" src={w_rook} alt=" " />
         <img id="palm1" src={palm1} alt=" " />
@@ -173,13 +208,13 @@ export const App = () => {
 
 
 
-      <div ref={backGround2.ref} class="scenery" id="background2">
+      <div ref={backGround2.ref} className="scenery" id="background2">
         <img id="r_pawn" src={r_pawn} alt=" " />
         <img id="r_knight" src={r_knight} alt=" " />
         <img id="palm2" src={palm2} alt=" " />
       </div>
 
-      <div ref={cycleAnimation.ref} class="scenery" id="foreground1">
+      <div ref={cycleAnimation.ref} className="scenery" id="foreground1">
         <img id="cycle" src={cycle} alt="cycle" height="250px" />
       </div>
 
@@ -190,10 +225,10 @@ export const App = () => {
 
 
       <div >
-        <img id="clock" src={clock} alt="clock" />
+        <img id="sun" src={sun} alt="Sun" />
       </div>
 
-      <div ref={birdAnimation.ref} class="scenery" id="background2">
+      <div ref={birdAnimation.ref} className="scenery" id="background2">
         <img id="bird" src={bird} alt="bird" />
       </div>
 
