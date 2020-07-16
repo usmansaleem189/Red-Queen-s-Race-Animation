@@ -1,5 +1,6 @@
 import React from "react";
-import useWebAnimations from "@wellyshen/use-web-animations";
+import useWebAnimations, {bounceInLeft, bounceInRight} from "@wellyshen/use-web-animations";
+// check https://animate.style/  or animate.css for bounceInLeft & bounceInRight
 import './App.css';
 // import chicken from './images/chicken.gif';
 import cycle from './images/cycle.gif';
@@ -158,13 +159,28 @@ export const App = () => {
   
   }
 
+const buttonLeft = useWebAnimations({...bounceInLeft});
+const buttonRight = useWebAnimations({...bounceInRight});
+
+// const { keyframes, timing } = bounceInLeft;
+// const { ref } = useWebAnimations({
+//   keyframes,
+//   timing: {
+//     ...timing,
+//     delay: 1000, // Delay 1s
+//     duration: timing.duration * 0.75, // Speed up the animation
+//   },
+// });
+
+
+
   return (
     <div className="wrapper">
       <div className="sky"></div>
       <div id="buttonContainer">
-        <button onClick={speedUp}>Speed Up</button>
+        <button ref={buttonLeft.ref} onClick={speedUp}>Speed Up</button>
         {/* <button onClick={jumpToHalf}>Jump to Half</button> */}
-        <button onClick={speedDown}>Speed Down</button>
+        <button ref={buttonRight.ref} onClick={speedDown}>Speed Down</button>
       </div>
       <div className="earth">
         <div id="red-queen_and_alice">
